@@ -23,6 +23,8 @@ int check_cycle(listint_t *list)
 				return (1);
 			tmp2 = tmp2->next;
 		}
+		if (tmp->next == tmp2)
+			return (1);
 		tmp = tmp->next;
 	}
 	return (0);
