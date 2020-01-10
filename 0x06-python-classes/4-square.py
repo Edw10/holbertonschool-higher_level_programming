@@ -3,8 +3,6 @@ class Square:
     def __init__(self, size):
         self.__size = size
 
-    def area(self):
-        return pow(self.__size, 2)
 
     @property
     def size(self):
@@ -18,3 +16,8 @@ class Square:
             raise ValueError('size must be >= 0')
         else:
             self.__size = value
+
+
+
+    def area(self):
+        return pow(self.__size, 2)
