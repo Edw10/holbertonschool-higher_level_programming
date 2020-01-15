@@ -4,7 +4,7 @@ this module define a rectangle empty class
 """
 
 
-class Rectangle():
+class Rectangle:
     """
     rectangle class
     """
