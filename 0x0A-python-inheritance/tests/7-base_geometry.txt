@@ -1,0 +1,19 @@
+====================
+7. integer validator:
+====================
+
+Import module:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Public Method:
+=======.
+Write a method that validate a integer
+
+Operations:
+=========
+
+Empty List:
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("Numero", "Diez")
+    Traceback (most recent call last):
+    TypeError: Numero must be an integer
