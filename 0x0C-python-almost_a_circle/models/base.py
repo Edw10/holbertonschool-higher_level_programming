@@ -32,13 +32,13 @@ class Base:
         """
         save to a file the json representation
         """
+        if cls.__name__ is "Rectangle":
+            file_w = open("Rectangle.json", "w")
+        elif cls.__name__ is "Square":
+            file_w = open("Square.json", "w")
+        js_list = []
         if list_objs:
-            if cls.__name__ is "Rectangle":
-                file_w = open("Rectangle.json", "w")
-            elif cls.__name__ is "Square":
-                file_w = open("Square.json", "w")
-            js_list = []
             for obj in list_objs:
                 js_list.append(obj.to_dictionary())
-            file_w.write(cls.to_json_string(js_list))
-            file_w.close()
+        file_w.write(cls.to_json_string(js_list))
+        file_w.close()
