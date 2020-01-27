@@ -133,6 +133,6 @@ class Rectangle(Base):
                 if i == 4:
                     self.y = args
                 i += 1
-        elif kwargs is not None:
+        if kwargs is not None:
             for key, value in kwargs.items():
                 setattr(self, key, value)
