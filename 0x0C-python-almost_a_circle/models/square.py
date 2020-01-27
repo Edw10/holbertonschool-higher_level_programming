@@ -31,3 +31,28 @@ class Square(Rectangle):
         """size setter"""
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        update the attributes
+        """
+        if args is not None:
+            i = 0
+            for args in args:
+                if i == 0:
+                    self.id = args
+                if i == 1:
+                    self.width = args
+                    self.height = args
+                if i == 2:
+                    self.x = args
+                if i == 3:
+                    self.y = args
+                i += 1
+        elif kwargs is not none:
+            for key, value in kwargs.items():
+                if key == 'size':
+                    setattr(self, "width", value)
+                    setattr(self, "height", value)
+                else:
+                    setattr(self, key, value)
