@@ -35,9 +35,9 @@ class Base:
         if list_objs:
             if cls.__name__ is "Rectangle":
                 file_w = open("Rectangle.json", "w")
-            if cls.__name__ is "Square":
+            elif cls.__name__ is "Square":
                 file_w = open("Square.json", "w")
-            js_list = []
+            js_list=[]
             for obj in list_objs:
-                js_list.append(obj.to_json_string(obj.to_dictionary()))
-            json.dump(js_list, file_w)
+                js_list.append(obj.to_dictionary())
+            file_w.write(cls.to_json_string(js_list))
