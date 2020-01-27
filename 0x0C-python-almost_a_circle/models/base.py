@@ -42,3 +42,12 @@ class Base:
                 js_list.append(obj.to_dictionary())
         file_w.write(cls.to_json_string(js_list))
         file_w.close()
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        return the list represented by the string
+        """
+        if json_string:
+            return json.loads(json_string)
+        return ([])
