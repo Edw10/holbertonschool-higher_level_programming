@@ -30,39 +30,39 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """"""
+        """height getter"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """"""
+        """height setter"""
         self.validator("height", value)
         self.__height = value
 
     @property
     def x(self):
-        """"""
+        """x getter"""
         return self.__x
 
     @x.setter
     def x(self, value):
-        """"""
+        """x setter"""
         self.validator("x", value)
         self.__x = value
 
     @property
     def y(self):
-        """"""
+        """y getter"""
         return self.__y
 
     @y.setter
     def y(self, value):
-        """"""
+        """y setter"""
         self.validator("y", value)
         self.__y = value
 
     def validator(self, name, value):
-        """"""
+        """validator for values"""
         if type(value) is not int:
             raise TypeError(name + ' must be an integer')
         if name == 'x' or name == 'y':
@@ -73,22 +73,22 @@ class Rectangle(Base):
                 raise ValueError(name + ' must be > 0')
 
     def area(self):
-        """"""
+        """return area"""
         return (self.width * self.height)
 
     def display(self):
-        """"""
+        """display the rectangle with #"""
         print("\n"*self.y, end='')
         print((" "*self.x + "#"*self.width + '\n')*(self.height), end='')
 
     def __str__(self):
-        """"""
+        """str representation"""
         return ('[Rectangle] (' + str(self.id) + ') ' +
                 str(self.x) + '/' + str(self.y) +
                 ' - ' + str(self.width) + '/' + str(self.height))
 
     def update(self, *args, **kwargs):
-        """"""
+        """update the attributes"""
         if args is not None:
             i = 0
             for args in args:
