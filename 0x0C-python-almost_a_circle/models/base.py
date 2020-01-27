@@ -57,9 +57,6 @@ class Base:
         """
         create the object with the dictionary attributes
         """
-        if cls.__name__ is "Rectangle":
-            dummy = Rectangle()
-        elif cls.__name__ is "Square":
-            dummy = Square()
-        dummy.update(dictionary.items())
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
         return dummy
