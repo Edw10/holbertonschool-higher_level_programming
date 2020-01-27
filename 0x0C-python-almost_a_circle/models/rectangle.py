@@ -8,10 +8,14 @@ from models/base import Base
 
 
 class Rectangle(Base):
-    """this is the rectangle class"""
+    """
+    this is the rectangle class
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """init a rectangle class"""
-        Base.__init__(id)
+        """
+        init a rectangle class
+        """
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
@@ -19,50 +23,68 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """return width"""
+        """
+        return width
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """width setter"""
+        """
+        width setter
+        """
         self.validator("width", value)
         self.__width = value
 
     @property
     def height(self):
-        """height getter"""
+        """
+        height getter
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """height setter"""
+        """
+        height setter
+        """
         self.validator("height", value)
         self.__height = value
 
     @property
     def x(self):
-        """x getter"""
+        """
+        x getter
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
-        """x setter"""
+        """
+        x setter
+        """
         self.validator("x", value)
         self.__x = value
 
     @property
     def y(self):
-        """y getter"""
+        """
+        y getter
+        """
         return self.__y
 
     @y.setter
     def y(self, value):
-        """y setter"""
+        """
+        y setter
+        """
         self.validator("y", value)
         self.__y = value
 
     def validator(self, name, value):
-        """validator for values"""
+        """
+        validator for values
+        """
         if type(value) is not int:
             raise TypeError(name + ' must be an integer')
         if name == 'x' or name == 'y':
@@ -73,22 +95,30 @@ class Rectangle(Base):
                 raise ValueError(name + ' must be > 0')
 
     def area(self):
-        """return area"""
+        """
+        return area
+        """
         return (self.width * self.height)
 
     def display(self):
-        """display the rectangle with #"""
+        """
+        display the rectangle with #
+        """
         print("\n"*self.y, end='')
         print((" "*self.x + "#"*self.width + '\n')*(self.height), end='')
 
     def __str__(self):
-        """str representation"""
+        """
+        str representation
+        """
         return ('[Rectangle] (' + str(self.id) + ') ' +
                 str(self.x) + '/' + str(self.y) +
                 ' - ' + str(self.width) + '/' + str(self.height))
 
     def update(self, *args, **kwargs):
-        """update the attributes"""
+        """
+        update the attributes
+        """
         if args is not None:
             i = 0
             for args in args:
