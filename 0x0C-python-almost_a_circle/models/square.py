@@ -36,7 +36,7 @@ class Square(Rectangle):
         """
         update the attributes
         """
-        if args is not None:
+        if args:
             i = 0
             for args in args:
                 if i == 0:
@@ -49,3 +49,6 @@ class Square(Rectangle):
                 if i == 3:
                     self.y = args
                 i += 1
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
