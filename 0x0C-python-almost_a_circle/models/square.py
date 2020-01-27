@@ -49,6 +49,3 @@ class Square(Rectangle):
                 if i == 3:
                     self.y = args
                 i += 1
-        elif kwargs is not none:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
