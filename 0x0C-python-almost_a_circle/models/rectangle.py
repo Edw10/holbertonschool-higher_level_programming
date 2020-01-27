@@ -11,7 +11,7 @@ class Rectangle(Base):
     """this is the rectangle class"""
     def __init__(self, width, height, x=0, y=0, id=None):
         """init a rectangle class"""
-        super().__init__(id)
+        Base.__init__(id)
         self.width = width
         self.height = height
         self.x = x
