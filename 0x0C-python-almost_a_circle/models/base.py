@@ -90,7 +90,7 @@ class Base:
         file_w = open(cls.__name__+'.csv', "w")
         csv_w = csv.writer(file_w, delimiter=',')
         if list_objs:
-             if cls.__name__ is "Rectangle":
+            if cls.__name__ is "Rectangle":
                 for obj in list_objs:
                     csv_w.writerow([obj.id,
                                     obj.width,
