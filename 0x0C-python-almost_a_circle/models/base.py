@@ -87,19 +87,30 @@ class Base:
         """
         save to a csv file
         """
-        file_w = open(cls.__name__+'.csv', "w")
-        csv_w = csv.writer(file_w, delimiter=',')
-        if list_objs:
-            if cls.__name__ is "Rectangle":
-                for obj in list_objs:
-                    csv_w.writerow([obj.id,
-                                    obj.width,
-                                    obj.height,
-                                    obj.x,
-                                    obj.y])
-            if cls.__name__ is "Square":
-                for obj in list_objs:
-                    csv_w.writerow([obj.id,
-                                    obj.size,
-                                    obj.x,
-                                    obj.y])
+        file_w = open(cls.__name__ + '.csv', "w")
+        if cls.__name__ is "Rectangle":
+            col = ["id", "width", "height", "x", "y"]
+        if cls.__name__ is "Square":
+            col = ["id", "size", "x", "y"]
+        csv_w = csv.DictWriter(file_w, fieldnames=col)
+        csv_w.writeheader()
+        for obj in list_objs:
+            csv_w.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        return a list of objects
+        """
+        try:
+            file_r = open(cls.__name__ + '.csv', "r")
+        except FileNotFoundError:
+            return []
+        else:
+            l_dict = csv.DictReader(file_r)
+            l_obj = []
+            for dicty in l_dict:
+                for keys in dicty:
+                    dicty[keys] = int(dicty[keys])
+                l_obj.append(cls.create(**dicty))
+            return l_obj
