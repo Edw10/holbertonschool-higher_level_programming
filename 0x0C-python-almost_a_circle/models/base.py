@@ -69,9 +69,13 @@ class Base:
         """
         return a list of objects
         """
-        file_r = open(cls.__name__ + '.json', "r")
-        l_dict = cls.from_json_string(file_r.read())
-        l_obj = []
-        for dicty in l_dict:
-            l_obj.append(cls.create(**dicty))
-        return l_obj
+        try:
+            file_r = open(cls.__name__ + '.json', "r")
+        except FileNotFoundError:
+            return []
+        else:
+            l_dict = cls.from_json_string(file_r.read())
+            l_obj = []
+            for dicty in l_dict:
+                l_obj.append(cls.create(**dicty))
+            return l_obj
