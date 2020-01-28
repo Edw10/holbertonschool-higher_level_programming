@@ -11,10 +11,10 @@ class Testsquare(unittest.TestCase):
     """ """
     def test_pep8_conformance_square(self):
     """Test that we conform to PEP8."""
-pep8style = pep8.StyleGuide(quiet=True)
-result = pep8style.check_files(['models/square.py'])
-self.assertEqual(result.total_errors, 0,
-        "Found code style errors (and warnings).")
+    pep8style = pep8.StyleGuide(quiet=True)
+    result = pep8style.check_files(['models/square.py'])
+    self.assertEqual(result.total_errors, 0,
+                     "Found code style errors (and warnings).")
 
 def test_getter(self):
 r1 = Square(5)
