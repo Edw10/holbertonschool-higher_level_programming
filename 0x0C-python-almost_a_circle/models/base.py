@@ -5,6 +5,7 @@ this module define the Base class
 
 
 import json
+import csv
 
 
 class Base:
@@ -75,7 +76,30 @@ class Base:
             return []
         else:
             l_dict = cls.from_json_string(file_r.read())
+            file_r.close()
             l_obj = []
             for dicty in l_dict:
                 l_obj.append(cls.create(**dicty))
             return l_obj
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        save to a csv file
+        """
+        file_w = open(cls.__name__+'.csv', "w")
+        csv_w = csv.writer(file_w, delimiter=',')
+        if list_objs:
+             if cls.__name__ is "Rectangle":
+                for obj in list_objs:
+                    csv_w.writerow([obj.id,
+                                    obj.width,
+                                    obj.height,
+                                    obj.x,
+                                    obj.y])
+            if cls.__name__ is "Square":
+                for obj in list_objs:
+                    csv_w.writerow([obj.id,
+                                    obj.size,
+                                    obj.x,
+                                    obj.y])
