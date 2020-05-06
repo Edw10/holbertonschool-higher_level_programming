@@ -1,11 +1,11 @@
 #!/usr/bin/node
 // print multilenguages
 
-let argv = process.argv.slice(2);
+let argv = process.argv;
 
-if (argv[0] == null){
+if (argv[2] == null){
   console.log('No argument');
-} else if (argv[1] == null) {
+} else if (argv[3] == null) {
   console.log('Argument found');
 } else {
   console.log('Arguments found');
