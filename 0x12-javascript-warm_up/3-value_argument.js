@@ -6,9 +6,5 @@ const argv = process.argv.slice(2);
 if (argv[0] === undefined) {
   console.log('No argument');
 } else {
-  argv.forEach(val => {
-    if (val !== undefined) {
-      console.log(val);
-    }
-  });
+  console.log(argv[0]);
 }
