@@ -7,7 +7,7 @@ if (argv[0] === undefined) {
   console.log('No argument');
 } else {
   argv.forEach(val => {
-    if (val !=== undefined) {
+    if (val !== undefined) {
       console.log(val);
     }
   });
