@@ -9,7 +9,7 @@ request(process.argv[2], (err, res, bd) => {
   for (const i in JSON.parse(bd)) {
     if (JSON.parse(bd)[i].completed) {
       const id = JSON.parse(bd)[i].userId;
-      if (rest.hasOwnProperty(id)) {
+      if (Object.prototype.hasOwnProperty.call(rest, id)) {
         rest[id] += 1;
       } else {
         rest[id] = 1;
